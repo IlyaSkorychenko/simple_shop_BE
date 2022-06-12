@@ -9,3 +9,7 @@ import (
 func GetProducts() ([]entity.Product, *pkg.HttpError) {
 	return repository.GetAllProducts()
 }
+
+func CreateProduct(dto entity.ProductDto) *pkg.HttpError {
+	return repository.CreateProduct(dto.Name, dto.Price)
+}

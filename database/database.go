@@ -11,6 +11,10 @@ import (
 var GoquDb *goqu.Database
 var Client *sql.DB
 
+const (
+	ProductTable = "products"
+)
+
 func Connect() {
 	var (
 		host     = pkg.GetEnv("DB_HOST")

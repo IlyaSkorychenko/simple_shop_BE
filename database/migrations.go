@@ -27,7 +27,7 @@ func Migrate(upOnly bool) {
 	for filename, query := range migrations {
 		_, err := GoquDb.Exec(query)
 		pkg.Check(err)
-		fmt.Printf("\n-- Execudet SQL sript \"%s\" --\n", filename)
+		fmt.Printf("\n-- Execudet SQL script \"%s\" --\n", filename)
 	}
 }
 

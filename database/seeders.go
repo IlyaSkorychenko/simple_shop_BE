@@ -10,13 +10,14 @@ func Seed() {
 }
 
 func seedProducts() {
-	query := GoquDb.
-		Insert("products").
+	_, err := GoquDb.
+		From(ProductTable).
+		Insert().
 		Rows(
 			goqu.Record{"name": "first_product", "price": 199},
 			goqu.Record{"name": "second_product", "price": 300},
-		)
-	sql, args, _ := query.ToSQL()
-	_, err := GoquDb.Exec(sql, args...)
+		).
+		Executor().
+		Exec()
 	pkg.Check(err)
 }
